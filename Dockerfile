@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
 RUN echo "deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty multiverse \
     deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty-updates multiverse \ 
     deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/multiverse.list \
-    && sudo apt-get update \
-    && sudo apt-get install ttf-mscorefonts-installer
+    && apt-get update \
+    && apt-get install ttf-mscorefonts-installer
 
 # It's a good idea to use dumb-init to help prevent zombie chrome processes.
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
